@@ -114,6 +114,10 @@ module Firefly
     end
 
     get '/' do
+      redirect 'http://vivoom.co'
+    end
+
+    get '/admin' do
       @highlight = Firefly::Url.where(code: params[:highlight]).first
       @error     = params[:highlight] == "error"
 
@@ -127,7 +131,7 @@ module Firefly
 
     post '/api/set' do
       store_api_key(params[:api_key])
-      redirect '/'
+      redirect '/admin'
     end
 
     # GET /add?url=http://ariejan.net&api_key=test
