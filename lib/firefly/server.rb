@@ -199,7 +199,7 @@ module Firefly
       # requests for codes that match vivoom video ids should autogenerate a record
       if params[:code] =~ /^[0-9A-Za-z]{8}$/ && config[:vivoom_url]
         unless Firefly::Url.exists?(:code => params[:code])
-          generate_short_url("#{config[:vivoom_url]}/#{params[:code]}".squeeze('/'), params[:code])
+          generate_short_url("#{config[:vivoom_url]}/#{params[:code]}", params[:code])
         end
       end
 
